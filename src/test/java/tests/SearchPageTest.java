@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Tag;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static jobsearch.framework.utils.Utils.getCurrentDate;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -22,7 +21,7 @@ public class SearchPageTest extends BaseTest {
     private static final List<String> cards = new ArrayList<>();
     private final static String WHAT = "\"software quality engineer\" OR \"sqa\" OR" + "\"software quality assurance\" OR \"QA engineer\"";
     private final static String WHERE = "Remote";
-    private final static String SUBJECT = "Cards for " + getCurrentDate();
+    private static String SUBJECT = "Cards for " + getCurrentDate();
     private static String MESSAGE = "";
 
     @Tag("GetCards")
@@ -62,12 +61,13 @@ public class SearchPageTest extends BaseTest {
             }
             MESSAGE = String.format("%s\n%s", MESSAGE, url);
             logger.info(MESSAGE);
-
-            sendEmail(ApplicationConfig.HOST, ApplicationConfig.PORT, ApplicationConfig.EMAIL,
-                    ApplicationConfig.PASSWORD, SUBJECT, MESSAGE);
         }
         else {
+            SUBJECT = "CARDS - reCAPTCHA";
+            MESSAGE = "reCaptcha is displayed. Ending test...";
             logger.info("reCaptcha is displayed. Ending test...");
         }
+        sendEmail(ApplicationConfig.HOST, ApplicationConfig.PORT, ApplicationConfig.EMAIL,
+                ApplicationConfig.PASSWORD, SUBJECT, MESSAGE);
     }
 }
