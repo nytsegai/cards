@@ -1,0 +1,4 @@
+[INFO ] 2020-12-08 12:41:30.913 [Test worker] - 0 containers and 1 tests were excluded because tags do not match tag expression(s): [GetCards]
+[INFO ] 2020-12-08 12:41:31.204 [ForkJoinPool-1-worker-1] - ======= Test 'SearchPageTest' is started =======
+[INFO ] 2020-12-08 12:41:34.461 [Forwarding newSession on session null to remote] - Detected dialect: W3C
+[INFO ] 2020-12-08 12:41:41.338 [ForkJoinPool-1-worker-1] - reCaptcha is displayed. Ending test...

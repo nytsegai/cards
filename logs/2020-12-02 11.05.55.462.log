@@ -1,0 +1,5 @@
+[INFO ] 2020-12-02 11:05:55.787 [main] - ======= Test 'SearchPageTest' is started =======
+[INFO ] 2020-12-02 11:06:00.747 [main] - Total Job Count on Page 1: 15
+[INFO ] 2020-12-02 11:06:00.867 [main] - 
+card object:
+NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":".jobsearch\-JobComponent"}

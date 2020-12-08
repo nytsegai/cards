@@ -1,0 +1,9 @@
+[INFO ] 2020-12-07 10:36:07.888 [Test worker] - 0 containers and 1 tests were excluded because tags do not match tag expression(s): [GetCards]
+[INFO ] 2020-12-07 10:36:08.073 [ForkJoinPool-1-worker-1] - ======= Test 'SearchPageTest' is started =======
+[INFO ] 2020-12-07 10:36:11.303 [Forwarding newSession on session null to remote] - Detected dialect: W3C
+[INFO ] 2020-12-07 10:36:27.527 [ForkJoinPool-1-worker-1] - Cards on Page: 2
+[INFO ] 2020-12-07 10:36:28.858 [ForkJoinPool-1-worker-1] - | Senior QA Engineer (Freelance, Remote, NO C2C) | Braintrust | Just posted |
+[INFO ] 2020-12-07 10:36:28.859 [ForkJoinPool-1-worker-1] - Message:
+| Senior QA Engineer (Freelance, Remote, NO C2C) | Braintrust | Just posted |
+[INFO ] 2020-12-07 10:36:29.740 [ForkJoinPool-1-worker-1] - Message:
+| Senior QA Engineer (Freelance, Remote, NO C2C) | Braintrust | Just posted |

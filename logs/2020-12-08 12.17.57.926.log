@@ -1,0 +1,4 @@
+[INFO ] 2020-12-08 12:17:58.461 [main] - ======= Test 'SearchPageTest' is started =======
+[INFO ] 2020-12-08 12:18:04.030 [main] - title: hCaptcha solve page
+[INFO ] 2020-12-08 12:18:04.049 [main] - size: 0
+[INFO ] 2020-12-08 12:18:04.053 [main] - isDisplayed: false

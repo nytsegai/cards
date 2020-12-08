@@ -1,0 +1,111 @@
+buildscript {
+    repositories { jcenter() }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.5"
+        classpath "org.gradle:test-retry-gradle-plugin:1.1.9"
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+group 'indeed'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'io.qameta.allure'
+apply plugin: 'org.gradle.test-retry'
+
+
+dependencies {
+
+    testCompile group: 'junit', name: 'junit', version: '4.13.1'
+
+    compile group: 'io.qameta.allure', name: 'allure-attachments', version: '2.7.0'
+    compile group: 'io.qameta.allure', name: 'allure-selenide', version: '2.7.0'
+
+    compile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.0'
+    compile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.0'
+    compile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.7.0'
+    compile group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.7.0'
+
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.0'
+    runtime group: 'org.apache.logging.log4j', name: 'log4j-jul', version: '2.14.0'
+
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.12.0'
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.4'
+
+    compile group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.7.0'
+    compile group: 'com.codeborne', name: 'selenide', version: '5.16.2'
+    compile group: 'org.apache.commons', name: 'commons-email', version: '1.2'
+}
+
+allure {
+    version = '2.7.0'
+    aspectjweaver = true
+    autoconfigure = true
+    useJUnit5 {
+        version = '2.7.0'
+    }
+}
+
+task GetCards(type: Test) {
+    doFirst
+            {
+                environment 'HOST', findProperty('HOST')
+                environment 'PORT', findProperty('PORT')
+                environment 'EMAIL', findProperty('EMAIL')
+                environment 'PASSWORD', findProperty('PASSWORD')
+                environment 'BASE_URL', findProperty('BASE_URL')
+            }
+    def defaultTag = "GetCards"
+    def customTag = findProperty("customTag")
+    if (customTag != null) {
+        defaultTag = customTag
+    }
+    useJUnitPlatform {
+        includeTags defaultTag
+        includeEngines 'junit-jupiter'
+    }
+    systemProperties = [
+            'junit.jupiter.execution.parallel.enabled'                 : 'true',
+            'junit.jupiter.execution.parallel.config.strategy'         : 'fixed',
+            'junit.jupiter.execution.parallel.config.fixed.parallelism': 1,
+            'junit.jupiter.execution.parallel.mode.default'            : 'concurrent'
+    ]
+    systemProperty 'log4j.configurationFile', 'log4j2.properties'
+    systemProperty 'java.util.logging.manager', 'org.apache.logging.log4j.jul.LogManager'
+
+        retry {
+        maxRetries = 2
+        maxFailures = 1000
+        failOnPassedAfterRetry = false
+    }
+}
+
+tasks.withType(JavaExec) {
+    if (it.name == 'junitPlatformTest') {
+        doFirst {
+            jvmArgs "-javaagent:${configurations.agent.singleFile}"
+        }
+    }
+}
+
+task copyReportsDirForArchiving(type: Copy) {
+    from "$buildDir/allure-results"
+    into "$buildDir/allure-results"
+}
+
+task myClean(type: Delete) {
+    delete "$buildDir/allure-results"
+}
+test.dependsOn myClean
+myClean.dependsOn copyReportsDirForArchiving
+copyReportsDirForArchiving.dependsOn GetCards

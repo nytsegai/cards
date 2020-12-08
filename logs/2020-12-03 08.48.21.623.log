@@ -1,0 +1,40 @@
+[INFO ] 2020-12-03 08:48:21.970 [main] - ======= Test 'SearchPageTest' is started =======
+[INFO ] 2020-12-03 08:48:26.683 [main] - Cards on Page: 19
+[INFO ] 2020-12-03 08:48:26.886 [main] - | QA Engineer | Ethos Solutions, LLC | 22 days ago |
+[INFO ] 2020-12-03 08:48:27.691 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:27.894 [main] - | Quality Assurance Engineer | TruConnect Communication Inc | 30+ days ago |
+[INFO ] 2020-12-03 08:48:28.361 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:28.559 [main] - | QA Engineer | Affinity Resources | 1 day ago |
+[INFO ] 2020-12-03 08:48:28.956 [main] - contains COVID: true
+[INFO ] 2020-12-03 08:48:29.150 [main] - | Senior Software Quality Assurance Engineer | Berkshire Grey | 14 days ago |
+[INFO ] 2020-12-03 08:48:29.985 [main] - contains COVID: true
+[INFO ] 2020-12-03 08:48:30.172 [main] - | QA Engineer | Bear Group | 8 days ago |
+[INFO ] 2020-12-03 08:48:30.499 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:30.680 [main] - | Lead QA Engineer | CyberCoders | 1 day ago |
+[INFO ] 2020-12-03 08:48:31.028 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:31.211 [main] - | QA Engineer | CyberCoders | 1 day ago |
+[INFO ] 2020-12-03 08:48:31.555 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:31.736 [main] - | Software Quality Assurance (QA) | Ebury Partners | 30+ days ago |
+[INFO ] 2020-12-03 08:48:32.058 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:32.279 [main] - | Software QA Specialist | APAX Software | Today |
+[INFO ] 2020-12-03 08:48:32.587 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:32.767 [main] - | Software QA Engineer | ChargePoint | Today |
+[INFO ] 2020-12-03 08:48:33.081 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:33.265 [main] - | QA Engineer | Relatient, Inc | Today |
+[INFO ] 2020-12-03 08:48:33.587 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:33.762 [main] - | Director, Software Quality Assurance | NRC Health | 2 days ago |
+[INFO ] 2020-12-03 08:48:34.079 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:34.289 [main] - | QA Engineer - Remote | MobyMax | Today |
+[INFO ] 2020-12-03 08:48:34.827 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:35.028 [main] - | Senior Software QA Engineer | ChargePoint | Today |
+[INFO ] 2020-12-03 08:48:35.369 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:35.551 [main] - | QA Engineer | Ansira | 2 days ago |
+[INFO ] 2020-12-03 08:48:35.880 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:36.053 [main] - | Software Quality Assurance Analyst | NurseDash | 13 days ago |
+[INFO ] 2020-12-03 08:48:36.370 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:36.553 [main] - | Quality Assurance Engineer | myAgro Farms | 29 days ago |
+[INFO ] 2020-12-03 08:48:36.867 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:37.059 [main] - | QA Engineer | SkySync | 30+ days ago |
+[INFO ] 2020-12-03 08:48:37.461 [main] - contains COVID: false
+[INFO ] 2020-12-03 08:48:37.676 [main] - | Software Quality Assurance Analyst (Remote) | Leading Reach, Inc. | 1 day ago |
+[INFO ] 2020-12-03 08:48:38.070 [main] - contains COVID: false

@@ -1,0 +1,13 @@
+[INFO ] 2020-12-07 13:53:28.787 [Test worker] - 0 containers and 1 tests were excluded because tags do not match tag expression(s): [GetCards]
+[INFO ] 2020-12-07 13:53:29.497 [ForkJoinPool-1-worker-1] - ======= Test 'SearchPageTest' is started =======
+[INFO ] 2020-12-07 13:53:32.389 [Forwarding newSession on session null to remote] - Detected dialect: W3C
+[INFO ] 2020-12-07 13:53:42.225 [ForkJoinPool-1-worker-1] - Total Card(s) on Page: 11
+[INFO ] 2020-12-07 13:53:51.188 [ForkJoinPool-1-worker-1] - Remote Job(s) Posted Count: 8
+| Senior QA Engineer (Freelance, Remote, NO C2C) | Braintrust | Just posted |
+| Software Quality Analyst | Seamless.AI | 2 days ago |
+| SR Automation Test Developer | Mayo Clinic | 2 days ago |
+| QA Engineer | IRL | 3 days ago |
+| Software Quality Assurance Engineer (remote) | CNSI | 3 days ago |
+| Director of Quality Assurance | CBTS | 3 days ago |
+| Lead DBA | Community Brands | 3 days ago |
+| Senior SQA Engineer | Blackbird Technical Staffing | 3 days ago |
