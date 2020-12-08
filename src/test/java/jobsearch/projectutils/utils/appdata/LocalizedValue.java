@@ -16,10 +16,11 @@ public enum LocalizedValue {
     private Localizer localizer = new Localizer(Locale.getDefault());
 
     private String handleTerminology(String value){
-        Pair<String,String> result = Utils.getValueViaRegexGroup(Localizer.PROPERTY_VAR_REGEX, value);
-        if (result == null)
-            return value;
-        return value.replace(result.getKey(), localizer.getLocalizedText(result.getValue()));
+//        Pair<String,String> result = Utils.getValueViaRegexGroup(Localizer.PROPERTY_VAR_REGEX, value);
+//        if (result == null)
+//            return value;
+//        return value.replace(result.getKey(), localizer.getLocalizedText(result.getValue()));
+        return "";
     }
 
     @Override
