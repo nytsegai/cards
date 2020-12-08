@@ -1,1 +1,13 @@
-/debug.log
+/.allure
+/.idea
+/.gradle
+/allure-results
+/build
+/out
+*.iml
+*.log
+/lib
+/screenshots
+dev_profile.properties
+application.properties
+/target
