@@ -47,7 +47,8 @@ public class SearchPageTest extends BaseTest {
                     String information = searchPage.getCardInformation(index);
                     assertTrue(searchPage.isCardExpanded(), "Card is not expanded");
                     boolean bool = searchPage.getJobCOVIDInformation();
-                    if (!bool) {
+                    if (!bool && !information.contains("Data") && !information.contains("DBA")
+                            && !information.contains("Director") && !information.contains("Architect")) {
                         cards.add(information);
                     }
                 }
