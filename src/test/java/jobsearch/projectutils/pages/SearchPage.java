@@ -1,7 +1,7 @@
 package jobsearch.projectutils.pages;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import jobsearch.framework.testmanagement.ConfigManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 /**
  * @author Nahom Tsegai
@@ -62,9 +61,12 @@ public class SearchPage extends Page {
         clickWhenReady(elements.get(0));
     }
 
-    public void filterSearch(String what, String where) {
-        clearAndSetText(element(SEARCH_FILTER_WHAT_ID), what);
-        clearAndSetText(element(SEARCH_FILTER_WHERE_ID), where);
+    public void filterSearchWhat(String what) {
+        clearAndSetText(SEARCH_FILTER_WHAT_ID, what);
+    }
+
+    public void filterSearchWhere(String where) {
+        clearAndSetText(SEARCH_FILTER_WHERE_ID, where);
     }
 
     public void clickFindJobButton() {
@@ -92,9 +94,16 @@ public class SearchPage extends Page {
         clickWhenReady(element);
     }
 
-    private void clearAndSetText(SelenideElement element, String text) {
-        element.sendKeys(Keys.chord(Keys.CONTROL, "A", Keys.BACK_SPACE));
-        element.sendKeys(text);
+    private void clearAndSetText(By locator, String text) {
+        String browser = ConfigManager.BROWSER;
+        if(browser.equals("chrome")) {
+            SelenideElement element = element(locator);
+            element.sendKeys(Keys.chord(Keys.CONTROL, "A", Keys.BACK_SPACE));
+            element.sendKeys(text);
+        }
+        else if(browser.equals("firefox")) {
+            setElementValue(locator, text);
+        }
     }
 
     public int getJobCount() {

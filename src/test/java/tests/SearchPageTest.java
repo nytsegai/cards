@@ -29,7 +29,9 @@ public class SearchPageTest extends BaseTest {
     @org.junit.jupiter.api.Test
     public void searchPageTest() throws EmailException {
         searchPage = new SearchPage();
-        searchPage.filterSearch(WHAT, WHERE);
+        searchPage.filterSearchWhat(WHAT);
+        searchPage.filterSearchWhere(WHERE);
+//        System.exit(0);
         searchPage.clickFindJobButton();
         if(!searchPage.isCaptchaDisplayed()) {
             searchPage.clickFullTimeJobsDropDown();
@@ -48,7 +50,8 @@ public class SearchPageTest extends BaseTest {
                     assertTrue(searchPage.isCardExpanded(), "Card is not expanded");
                     boolean bool = searchPage.getJobCOVIDInformation();
                     if (!bool && !information.contains("Data") && !information.contains("DBA")
-                            && !information.contains("Director") && !information.contains("Architect")) {
+                            && !information.contains("Director") && !information.contains("Architect")
+                            && !information.contains("Manager")) {
                         cards.add(information);
                     }
                 }
