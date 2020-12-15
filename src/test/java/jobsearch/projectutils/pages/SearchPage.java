@@ -1,5 +1,6 @@
 package jobsearch.projectutils.pages;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import jobsearch.framework.testmanagement.ConfigManager;
 import org.openqa.selenium.By;
@@ -17,6 +18,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class SearchPage extends Page {
     private final static String CARD_FRAME_ID = "vjs-container-iframe";
     private final static String HOME_PAGE_TITLE_ID = "Indeed Search Page";
+    private final static String BROWSER = ConfigManager.BROWSER;
     private final static By SEARCH_FILTER_WHAT_ID = By.id("text-input-what");
     private final static By SEARCH_FILTER_WHERE_ID = By.id("text-input-where");
     private final static By FIND_JOBS_BUTTON_CLASSNAME = By.className("icl-WhatWhere-button");
@@ -95,13 +97,12 @@ public class SearchPage extends Page {
     }
 
     private void clearAndSetText(By locator, String text) {
-        String browser = ConfigManager.BROWSER;
-        if(browser.equals("chrome")) {
+        if(BROWSER.equals("chrome")) {
             SelenideElement element = element(locator);
             element.sendKeys(Keys.chord(Keys.CONTROL, "A", Keys.BACK_SPACE));
             element.sendKeys(text);
         }
-        else if(browser.equals("firefox")) {
+        else if(BROWSER.equals("firefox")) {
             setElementValue(locator, text);
         }
     }
@@ -134,6 +135,9 @@ public class SearchPage extends Page {
 
     public boolean isCardExpanded() {
         switchTo().frame(CARD_FRAME_ID);
+        if(BROWSER.equals("firefox")) {
+            Selenide.sleep(3000);
+        }
         int size = elements(EXPANDED_JOB_CARD_CLASSNAME).size();
         switchTo().parentFrame();
         return size > 0;
