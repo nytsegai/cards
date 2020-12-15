@@ -44,7 +44,7 @@ public class TestFactory {
 
 
     @Tag("testfactory")
-    @Test
+//    @Test
     void testFactoryTest() {
         beforeTestsSetup();
         String sysTimeout = System.getenv(PVM_TIMEOUT_STRING);

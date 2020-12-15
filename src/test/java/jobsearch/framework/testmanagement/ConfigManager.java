@@ -3,11 +3,9 @@ package jobsearch.framework.testmanagement;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import jobsearch.projectutils.data.dataobjects.Config;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import jobsearch.framework.logger.Log4jSelenide;
 import jobsearch.framework.logger.Logger;
 import jobsearch.framework.utils.PathUtility;
@@ -36,14 +34,12 @@ public class ConfigManager {
     public static final boolean LOG_ALLURE_VERBOSE = Boolean.parseBoolean(properties.getProperty("log.selenide.to.allure.verbose"));
     public static final int TIMEOUT = Integer.parseInt(properties.getProperty("wait.pageTimeout"));
     public static final Long CONDITIONAL_TIMEOUT = Long.parseLong(properties.getProperty("selenide.timeout"));
-    public static final Long SMALL_CONDITIONAL_TIMEOUT = Long.parseLong(properties.getProperty("wait.smallConditionTimeout"));
     public static String BROWSER = properties.getProperty("default.browser");
     public static Boolean HOLD_BROWSER_OPEN =  Boolean.parseBoolean(properties.getProperty("hold.browser.open"));
     public static Boolean HEADLESS =  Boolean.parseBoolean(properties.getProperty("headless"));
     public static Boolean START_MAXIMIZED =  Boolean.parseBoolean(properties.getProperty("start.maximized"));
     public static String GLOBAL_TIMEOUT_STRING = properties.getProperty("globalTimeout");
     public static final String BASE_URL = System.getenv("BASE_URL");
-//    public static String VERSION = properties.getProperty("version");
 
     public static void initializeProperties() {
         INITIALIZED = true;
@@ -52,7 +48,6 @@ public class ConfigManager {
         initSelenideProperties();
         OperaOptions options = new OperaOptions();
         options.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
-        Configuration.browserCapabilities = new DesiredCapabilities(options);
 
     }
 

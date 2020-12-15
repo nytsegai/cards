@@ -42,15 +42,6 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-email', version: '1.2'
 }
 
-allure {
-    version = '2.7.0'
-    aspectjweaver = true
-    autoconfigure = true
-    useJUnit5 {
-        version = '2.7.0'
-    }
-}
-
 task GetCards(type: Test) {
     doFirst
             {
@@ -62,20 +53,16 @@ task GetCards(type: Test) {
                 environment 'BASE_URL', findProperty('BASE_URL')
             }
     def defaultTag = "GetCards"
-    def customTag = findProperty("customTag")
-    if (customTag != null) {
-        defaultTag = customTag
-    }
     useJUnitPlatform {
         includeTags defaultTag
         includeEngines 'junit-jupiter'
     }
-    systemProperties = [
-            'junit.jupiter.execution.parallel.enabled'                 : 'true',
-            'junit.jupiter.execution.parallel.config.strategy'         : 'fixed',
-            'junit.jupiter.execution.parallel.config.fixed.parallelism': 1,
-            'junit.jupiter.execution.parallel.mode.default'            : 'concurrent'
-    ]
+//    systemProperties = [
+//            'junit.jupiter.execution.parallel.enabled'                 : 'true',
+//            'junit.jupiter.execution.parallel.config.strategy'         : 'fixed',
+//            'junit.jupiter.execution.parallel.config.fixed.parallelism': 1,
+//            'junit.jupiter.execution.parallel.mode.default'            : 'concurrent'
+//    ]
     systemProperty 'log4j.configurationFile', 'log4j2.properties'
     systemProperty 'java.util.logging.manager', 'org.apache.logging.log4j.jul.LogManager'
 
