@@ -8,10 +8,8 @@ import org.apache.commons.mail.SimpleEmail;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import jobsearch.framework.assertions.SoftAssertions;
 import jobsearch.framework.logger.Logger;
-import jobsearch.framework.utils.Utils;
 import jobsearch.projectutils.utils.appdata.ApplicationConfig;
 
 import java.util.ArrayList;
@@ -27,7 +25,7 @@ public class BaseTest {
     @BeforeEach
     public void setUpEach() {
         SoftAssertions.store.set(new ArrayList<>());
-        screenShotStorage.set(new ArrayList<String>());
+        screenShotStorage.set(new ArrayList<>());
         logger.testStartInfo(getClass());
         if (!ApplicationConfig.INITIALIZED) {
             TestFactory.beforeTestsSetup();
@@ -48,14 +46,10 @@ public class BaseTest {
 
     @AfterEach
     public void tearDown() {
-        if (screenShotStorage.get().isEmpty()) {
-            Utils.takeScreenshot((RemoteWebDriver) getWebDriver());
-        }
         if (isIE() || isFirefox()) {
             WebDriverRunner.closeWebDriver();
             sleep(500);
         }
-        close();
         SoftAssertions.hardAssertErrorStorage();
         SoftAssertions.clearStorage();
     }

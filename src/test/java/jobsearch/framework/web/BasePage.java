@@ -505,7 +505,7 @@ public abstract class BasePage {
             } catch (Exception e) {
 
             }
-            Utils.takeScreenshot((RemoteWebDriver) getWebDriver());
+//            Utils.takeScreenshot((RemoteWebDriver) getWebDriver());
             throw new UnhandledAlertException("Unexpected alert was displayed after user has clicked the button." +
                 "\n Please, note, the screenshot for this case could be not descriptive in case of multiple threads. \n Alert Text says", text);
 

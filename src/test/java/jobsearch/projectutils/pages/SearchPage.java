@@ -16,6 +16,7 @@ import static com.codeborne.selenide.Selenide.*;
  */
 
 public class SearchPage extends Page {
+    private final static String SEARCH_WINDOW_VALUE = System.getenv("SEARCH_WINDOW");
     private final static String CARD_FRAME_ID = "vjs-container-iframe";
     private final static String HOME_PAGE_TITLE_ID = "Indeed Search Page";
     private final static String BROWSER = ConfigManager.BROWSER;
@@ -92,7 +93,7 @@ public class SearchPage extends Page {
     public void clickLastDayJobsDropDown() {
         SelenideElement dropdown = element(SEARCH_FILTER_DATE_ID);
         clickWhenReady(dropdown);
-        SelenideElement element = dropdown.$$(SEARCH_FILTER_TYPE_DROPDOWN_ID).get(2);
+        SelenideElement element = dropdown.$$(SEARCH_FILTER_TYPE_DROPDOWN_ID).get(Integer.parseInt(SEARCH_WINDOW_VALUE));
         clickWhenReady(element);
     }
 

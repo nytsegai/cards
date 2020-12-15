@@ -1,18 +1,10 @@
 package jobsearch.framework.utils;
 
-//import javafx.util.Pair;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.tuple.Pair;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import jobsearch.framework.logger.Logger;
-import jobsearch.framework.testmanagement.BaseTest;
 import jobsearch.framework.testmanagement.Constants;
 import jobsearch.projectutils.utils.appdata.AppConstants;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,7 +19,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static com.codeborne.selenide.Screenshots.getLastScreenshot;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class Utils {
 
@@ -188,35 +179,6 @@ public class Utils {
         }
 
         return props;
-    }
-
-    /**
-     * Creating screenshot to screenshot folder in the root of the project.
-     * If there is an Alert displayed, the standart method does not work,
-     * so here there is an option to tal\ke a screenshot using JAVA Robot class.
-     * However when tests are run in the multithread - it will take the active window screen not the necessarily the one with the alert.
-     */
-    public static void takeScreenshot(RemoteWebDriver driver) {
-        String destDir = PathUtility.getScreenshotFolder();
-        File scrFile = null;
-
-        String fullName = destDir + System.currentTimeMillis() + "." + Constants.IMAGE_EXTENSION;
-        try {
-            try {
-                scrFile = ((RemoteWebDriver) (getWebDriver())).getScreenshotAs(OutputType.FILE);
-                FileUtils.copyFile(scrFile, new File(fullName));
-            } catch (RuntimeException ex) {
-                Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
-                BufferedImage capture = new Robot().createScreenCapture(screenRect);
-                ImageIO.write(capture, Constants.IMAGE_EXTENSION, new File(fullName));
-
-            }
-
-            BaseTest.screenShotStorage.get().add(fullName);
-        } catch (IOException | AWTException e) {
-            e.printStackTrace();
-        }
-
     }
 
     public static boolean isDateInIntervalOfDays(String birthday, int daysNumber) {

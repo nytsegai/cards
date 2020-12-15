@@ -51,7 +51,8 @@ public class SearchPageTest extends BaseTest {
                     boolean bool = searchPage.getJobCOVIDInformation();
                     if (!bool && !information.contains("Data") && !information.contains("DBA")
                             && !information.contains("Director") && !information.contains("Architect")
-                            && !information.contains("Manager") && !information.contains("Full Stack")) {
+                            && !information.contains("Manager") && !information.contains("Full Stack")
+                            && !information.contains("Financial")) {
                         cards.add(information);
                         String companyName = String.format("'%s'", searchPage.getCompanyName(index));
                         String jobTitle = String.format("'%s'", searchPage.getJobTitle(index));
@@ -72,7 +73,7 @@ public class SearchPageTest extends BaseTest {
         else {
             SUBJECT = "CARDS - reCAPTCHA";
             MESSAGE = "reCaptcha is displayed. Ending test...";
-            logger.info("reCaptcha is displayed. Ending test...");
+            logger.info(MESSAGE);
         }
         sendEmail(ApplicationConfig.HOST, ApplicationConfig.PORT, ApplicationConfig.EMAIL,
                 ApplicationConfig.PASSWORD, SUBJECT, MESSAGE);
