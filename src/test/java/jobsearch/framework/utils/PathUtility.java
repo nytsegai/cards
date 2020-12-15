@@ -22,7 +22,9 @@ public class PathUtility {
     public static final String DOT = ".";
 
 
-
+    public static String getFullFilePath(String fileName) {
+        return Paths.get("").toAbsolutePath() + "\\src\\test\\resources\\psscripts\\" + fileName;
+    }
 
     public static Path getFolderPath(String subfolder) throws IOException {
         return getFilePath(subfolder, null);

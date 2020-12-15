@@ -13,6 +13,7 @@ import java.util.List;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static jobsearch.framework.utils.Utils.getCurrentDate;
+import static jobsearch.projectutils.psutils.ApplicationUtility.createCardFiles;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Test")
@@ -31,7 +32,6 @@ public class SearchPageTest extends BaseTest {
         searchPage = new SearchPage();
         searchPage.filterSearchWhat(WHAT);
         searchPage.filterSearchWhere(WHERE);
-//        System.exit(0);
         searchPage.clickFindJobButton();
         if(!searchPage.isCaptchaDisplayed()) {
             searchPage.clickFullTimeJobsDropDown();
@@ -42,7 +42,7 @@ public class SearchPageTest extends BaseTest {
             int cardCount = searchPage.getJobCount();
             int pageCounter = 1;
             assertTrue(cardCount > 0, "No cards available");
-            logger.info(String.format("Total Card(s) on Page %s: %s", pageCounter, searchPage.getJobCount()));
+            logger.info(String.format("Total card(s) on Page %s: %s", pageCounter, searchPage.getJobCount()));
             while (searchPage.isNextPageButtonDisplayed()) {
                 for (int index = 0; index < cardCount; index++) {
                     searchPage.expandCard(index);
@@ -51,8 +51,11 @@ public class SearchPageTest extends BaseTest {
                     boolean bool = searchPage.getJobCOVIDInformation();
                     if (!bool && !information.contains("Data") && !information.contains("DBA")
                             && !information.contains("Director") && !information.contains("Architect")
-                            && !information.contains("Manager")) {
+                            && !information.contains("Manager") && !information.contains("Full Stack")) {
                         cards.add(information);
+                        String companyName = String.format("'%s'", searchPage.getCompanyName(index));
+                        String jobTitle = String.format("'%s'", searchPage.getJobTitle(index));
+                        createCardFiles(companyName, jobTitle);
                     }
                 }
                 pageCounter++;

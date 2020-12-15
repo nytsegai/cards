@@ -122,6 +122,16 @@ public class SearchPage extends Page {
                 card.$(COMPANY_TITLE_CLASSNAME).text(), card.$(DATE_POSTED_CLASSNAME).text());
     }
 
+    public String getCompanyName(int index) {
+        SelenideElement card = elements(CARD_CLASSNAME).get(index);
+        return card.$(COMPANY_TITLE_CLASSNAME).text();
+    }
+
+    public String getJobTitle(int index) {
+        SelenideElement card = elements(CARD_CLASSNAME).get(index);
+        return card.$(JOB_TITLE_CLASSNAME).text();
+    }
+
     public boolean isCardExpanded() {
         switchTo().frame(CARD_FRAME_ID);
         int size = elements(EXPANDED_JOB_CARD_CLASSNAME).size();
