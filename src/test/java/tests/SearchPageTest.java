@@ -49,10 +49,15 @@ public class SearchPageTest extends BaseTest {
                     String information = searchPage.getCardInformation(index);
                     assertTrue(searchPage.isCardExpanded(), "Card is not expanded");
                     boolean bool = searchPage.getJobCOVIDInformation();
-                    if (!bool && !information.contains("Data") && !information.contains("DBA")
-                            && !information.contains("Director") && !information.contains("Architect")
-                            && !information.contains("Manager") && !information.contains("Full Stack")
-                            && !information.contains("Financial")) {
+                    if (!bool &&
+                            !information.contains("Data")
+                            && !information.contains("DBA")
+                            && !information.contains("Director")
+                            && !information.contains("Architect")
+                            && !information.contains("Manager")
+                            && !information.contains("Full Stack")
+                            && !information.contains("Financial")
+                            && !information.contains("Administrator")) {
                         cards.add(information);
                         String companyName = String.format("'%s'", searchPage.getCompanyName(index));
                         String jobTitle = String.format("'%s'", searchPage.getJobTitle(index));
